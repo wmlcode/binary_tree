@@ -6,14 +6,12 @@ public class Tree {
     private static Node current;
     private boolean debug = false;
 
-    Tree() {}
-
-    public void setDebug(boolean d) {
+    Tree(boolean d) {
         debug = d;
     }
 
     private void print(String s) {
-        if (debug == true) {
+        if (debug) {
             System.out.println(s);
         }
     }

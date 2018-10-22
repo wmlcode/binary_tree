@@ -1,10 +1,9 @@
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr = {100, 7, 6, 120, 56, 99, 99, 200};
-        Tree tree = new Tree();
+        int[] arr = {100, 7, 6, 120, 56, 99, 99, 200, 99};
+        Tree tree = new Tree(false);
 
-        tree.setDebug(false);
         for (int i = 0; i < arr.length; i++) {
             tree.add(arr[i]);
         }
