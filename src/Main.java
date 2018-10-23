@@ -1,7 +1,7 @@
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr = {100, 7, 6, 120, 56, 99, 99, 200, 99};
+        int[] arr = {100, 7, 6, 120, 56, 99, 99, 200, 99, 200};
         Tree tree = new Tree(false);
 
         for (int i = 0; i < arr.length; i++) {
@@ -16,5 +16,6 @@ public class Main {
         System.out.println("-------------------");
         System.out.println("Count of 99: " + tree.count(99));
         System.out.println("Count of 120: " + tree.count(120));
+        System.out.println("Count of 200: " + tree.count(200));
     }
 }

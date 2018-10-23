@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Tree {
     private static ArrayList<Node> tree = new ArrayList<>();
     private static Node current;
-    private boolean debug = false;
+    private boolean debug;
 
     Tree(boolean d) {
         debug = d;
@@ -55,11 +55,19 @@ public class Tree {
     }
 
     public boolean contain(int v) {
-        for (Node t : tree) {
-            if (t.getValue().equals(v))
+        Node current = tree.get(0);
+        while (true) {
+            if (v == current.getValue()) {
                 return true;
+            }
+            if (v >= current.getValue() && current.hasRight()) {
+                current = current.getRight();
+            } else if (current.hasLeft()) {
+                current = current.getLeft();
+            } else {
+                return false;
+            }
         }
-        return false;
     }
 
     public int count(int v) {
@@ -72,19 +80,12 @@ public class Tree {
             if (v == current.getValue()) {
                 cnt++;
             }
-            if (v >= current.getValue()) {
-                if (current.hasRight()) {
-                    current = current.getRight();
-                } else {
-                    return cnt;
-                }
-            }
-            if (v < current.getValue()) {
-                if (current.hasLeft()) {
-                    current = current.getLeft();
-                } else {
-                    return cnt;
-                }
+            if (v >= current.getValue() && current.hasRight()) {
+                current = current.getRight();
+            } else if (current.hasLeft()) {
+                current = current.getLeft();
+            } else {
+                return cnt;
             }
         }
     }
